@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Contrato Transporte Escolar</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="cordova.js"></script>
+  </head>
+  <body>
+    <h1>Contratos Transporte</h1>
+
+    <label for="nome">Contratante:</label>
+    <input
+      type="text"
+      id="nome"
+      pattern="([aA-zZ]+)"
+      placeholder="Nome do Cliente"
+      required
+    /><br />
+
+    <label for="crianca">Criança: </label>
+    <input
+      type="text"
+      id="crianca"
+      pattern="([aA-zZ]+)"
+      placeholder="Nome da Criança"
+      required
+    /><br />
+
+    <label for="rg">RG:</label>
+    <input type="text" id="rg" size="15" /><br />
+
+    <label for="cpf">CPF:</label>
+    <input type="text" id="cpf" size="15" /><br />
+
+    <label for="endereco">Endereço:</label>
+    <input type="text" id="endereco" name="endereco" required /><br />
+
+    <label for="bairro">Bairro:</label>
+    <input type="text" id="bairro" name="bairro" required /><br />
+
+    <label for="pgto">Dia Pagamento:</label>
+    <select id="pgto" name="pgto[]">
+      <option value=" 1">Dia 1</option>
+      <option value=" 5">Dia 5</option>
+      <option value=" 10">Dia 10</option>
+      <option value=" 15">Dia 15</option>
+      <option value=" 20">Dia 20</option>
+      <option value=" 25">Dia 25</option>
+      <option value=" 30">Dia 30</option></select
+    ><br />
+
+    <label for="telefone">Telefone:</label>
+    <input type="tel" id="telefone" required /><br />
+
+    <label for="celular">Celular:</label>
+    <input type="tel" id="celular" required /><br />
+
+    <label for="valor">Valor:</label>
+    <input type="number" id="valor" required /><br />
+
+    <br />
+
+    <button onclick="savePDF()">Gerar Contrato</button>
+
+    <script>
+      //PARA WEB COMENTAR ABAIXO ATÉ O INICIO DA FUNÇÃO
+      //document.addEventListener(
+      //"deviceready",
+      //function () {
+      // Solicitar permissões em tempo de execução
+      //if (cordova.platformId === "android") {
+      //window.cordova.plugins.permissions.requestPermissions(
+      //[
+      //window.cordova.plugins.permissions.WRITE_EXTERNAL_STORAGE,
+      //window.cordova.plugins.permissions.READ_EXTERNAL_STORAGE,
+      //],
+      //function (status) {
+      //if (!status.hasPermission) {
+      //alert("Permissões não concedidas");
+      //}
+      //},
+      //function () {
+      //alert("Erro ao solicitar permissões");
+      //}
+      //);
+      //}
+      //},
+      //false
+      //);
+
+      function savePDF() {
+        // Variáveis pdf
+        var { jsPDF } = window.jspdf;
+        var doc = new jsPDF();
+        //var img = USAR BASE 64 EM WEB
+        //var img = new Image(); //USAR SOMENTE EM ANDROID
+        //img.src = "icon.png"; //USAR SOMENTE EM ANDROID
+        var nome = document.getElementById("nome").value;
+        var crianca = document.getElementById("crianca").value;
+        var rg = document.getElementById("rg").value;
+        var cpf = document.getElementById("cpf").value;
+        var endereco = document.getElementById("endereco").value;
+        var bairro = document.getElementById("bairro").value;
+        var pgto = document.getElementById("pgto").value;
+        //var data = document.getElementById("data").value;
+        //var horaMontagem = document.getElementById("hora-montagem").value;
+        //var horaDesmonte = document.getElementById("hora-desmonte").value;
+        //var email = document.getElementById("email").value;
+        var telefone = document.getElementById("telefone").value;
+        var celular = document.getElementById("celular").value;
+        var valor = document.getElementById("valor").value;
+        //var rest = document.getElementById("rest").value;
+        //var obs = document.getElementById("obs").value;
+        //var kitt = document.getElementById("kitt").value;
+        //var itens = [];
+        //var checkboxes = document.querySelectorAll(
+        //  'input[name="itens[]"]:checked'
+        //);
+        //for (var i = 0; i < checkboxes.length; i++) {
+        //  itens.push(checkboxes[i].value);
+        //}
+
+        // Logo do pdf TANTO WEB COMO ANDROID
+        //doc.addImage(img, "png", 170, 10, 40, 30);
+
+        // Corpo PDF
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(16);
+        doc.text("TRANSPORTE ESCOLAR", 72, 15);
+
+        doc.setFontSize(12);
+        doc.text("TIO MIUDO E TIA CLAUDINHA", 76, 22);
+        doc.text("Contrato Particular de Prestação de Serviço", 15, 33);
+
+        doc.setFont("helvetica", "normal");
+        doc.text(
+          "Pelo presente contrato de prestação de serviço, de um lado Gleidson de Carvalho Melo",
+          15,
+          42
+        );
+        doc.text(
+          "RG: 30.527.990-7, devidamente cadastrado na prefeitura de São Bernardo do Campo",
+          15,
+          48
+        );
+        doc.text(
+          "Prefixo nº SB0418, denominada  CONTRATADA, e de outro lado: ",
+          15,
+          54
+        );
+        doc.setFont("helvetica", "bold");
+        doc.text(nome, 15, 61);
+        doc.setFont("helvetica", "normal");
+        doc.text("Portador do RG: " + rg + " e do CPF: " + cpf, 15, 69);
+        doc.text(
+          "Residente e domiciliado na: " + endereco + " no bairro " + bairro,
+          15,
+          75
+        );
+        doc.text("Na cidade de São Bernardo do Campo / SP", 15, 81);
+        doc.text("Telefone: " + telefone + "  Celular: " + celular, 15, 87);
+        doc.setFont("helvetica", "bold");
+        doc.text("Nome da Criança a ser transportada:", 15, 94);
+
+        doc.setFont("helvetica", "bolditalic");
+        doc.text(crianca, 20, 100);
+
+        doc.setFont("helvetica", "normal");
+        doc.setFontSize(10);
+        doc.text(
+          "Denominado(a) CONTRATANTE, tem entre si, justo e contratado na melhor forma de direito às cláusulas abaixo:",
+          15,
+          107
+        );
+        doc.setFontSize(11);
+        doc.text(
+          "Cláusula I: Todo pagamento deverá ser efetuado dia" +
+            pgto +
+            " do mês corrente no valor de R$: " +
+            valor,
+          18,
+          117
+        );
+        doc.text(
+          "Os aumentos serão dados de acordo com a inflação ou reajuste de combustível.",
+          15,
+          123
+        );
+        doc.text(
+          "Cláusula II: Os meses de Julho, Dezembro e Janeiro, deverão ser pagos normalmente com boletos",
+          18,
+          131
+        );
+        doc.text("antes do encerramento das aulas.", 15, 137);
+        doc.setFont("helvetica", "italic");
+        doc.text(
+          "OBS. Indepenente se a criança continuar ou não no transporte.",
+          74,
+          137
+        );
+        doc.setFont("helvetica", "normal");
+        doc.text(
+          "Cláusula III: O pagamento após 15 dias da data será cobrado o valor de R$ 10,00 adicionais.",
+          18,
+          145
+        );
+
+        doc.text(
+          "Cláusula IV: A criança deverá estar, no portão quando o transportador vier buscar. O transportador",
+          18,
+          153
+        );
+        doc.text(
+          "não levará o aluno em dias festivos ou horários alterados pela escola. O transporte escolar é de",
+          15,
+          159
+        );
+        doc.text("Segunda a Sexta-feira.", 15, 165);
+        doc.text(
+          "Cláusula V: O transportador compromete-se a oferecer veículos em bom estado e condições de uso,",
+          18,
+          173
+        );
+        doc.text(
+          "garntindo assim a chegada e segurança do(a) aluno(a) no horário estabelecido entre as partes.",
+          15,
+          179
+        );
+
+        var dataa = new Date();
+        var dia = String(dataa.getDate()).padStart(2, "0");
+        //var mes = String(dataa.getMonth() + 1).padStart(2, '0');
+        mes = dataa.toLocaleString("pt-BR", { month: "long" });
+        var ano = dataa.getFullYear();
+        dataAtual = dia + " de " + mes + " de " + ano;
+        doc.setFontSize(10);
+        doc.setFont("helvetica", "bold");
+        doc.text("São Bernardo do Campo.  " + dataAtual + ".", 20, 230);
+        doc.text(
+          "___________________________                                  ___________________________",
+          35,
+          265
+        );
+        doc.text(
+          "              CONTRATANTE                                                                CONTRATADO",
+          35,
+          270
+        );
+        //for (var i = 0; i < itens.length; i++) {
+        //  doc.text("-->: " + itens[i], 16, 160 + i * 5);
+        // }
+        doc.save("Contrato_" + nome + ".pdf"); // Salva o PDF com o nome "contrato_NOME.pdf" WEB DESCOMENTAR ESTA LINHA
+
+        //WEB COMENTAR ESTAS LINHAS ATÉ O INFORMADO
+        //var pdfOutput = doc.output("blob");
+        //var fileName = "Contrato_" + nome + ".pdf"; // Nome do arquivo
+
+        //window.resolveLocalFileSystemURL(
+        //cordova.file.externalRootDirectory + "Download/",
+        //function (dir) {
+        //dir.getFile(
+        //fileName,
+        //{ create: true },
+        //function (file) {
+        //file.createWriter(
+        //function (fileWriter) {
+        //fileWriter.onwriteend = function () {
+        //alert("Contrato salvo com sucesso em DOWNLOADS!");
+        // Abrir o PDF após salvar
+        //const filePath =
+        //cordova.file.externalRootDirectory +
+        //"Download/" +
+        //fileName;
+        //console.log("Tentando abrir o arquivo: " + filePath);
+        //cordova.plugins.fileOpener2.open(
+        //filePath,
+        //"application/pdf",
+        //{
+        //error: function (e) {
+        //console.error("Erro ao abrir o PDF: ", e);
+        //alert("Erro ao abrir o PDF: " + e.message);
+        //},
+        //success: function () {
+        //console.log("PDF aberto com sucesso");
+        //},
+        //}
+        //);
+        //};
+        //fileWriter.onerror = function (e) {
+        //alert("Erro ao salvar o PDF: " + e.toString());
+        //};
+        //fileWriter.write(pdfOutput);
+        //},
+        //function (error) {
+        //alert(
+        //"Erro ao criar o escritor de arquivos: " +
+        //error.toString()
+        //);
+        //}
+        //);
+        //},
+        //function (error) {
+        //alert("Erro ao obter o arquivo: " + JSON.stringify(error));
+        //}
+        //);
+        //},
+        //function (error) {
+        //alert(
+        //"Erro ao resolver o sistema de arquivos: " + JSON.stringify(error)
+        //);
+        //}
+        //);
+      } //COMENTAR ATÉ AQUI
+    </script>
+  </body>
+</html>
