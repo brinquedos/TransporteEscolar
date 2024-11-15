@@ -1,10 +1,11 @@
 /* CSS Responsivo com campos organizados e tema azul claro */
+
 html {
   width: 420px;
 }
 
 body {
-  max-width: 450px;
+  width: 100%;
   font-family: Arial, sans-serif;
   margin: 20;
   padding: 20;
@@ -20,7 +21,7 @@ h1 {
 }
 
 form {
-  max-width: 600px;
+  max-width: 4500px;
   margin: 20px auto;
   background: #ffffff;
   padding: 20px;
@@ -127,23 +128,4 @@ button {
 
 button:hover {
   background-color: #1e88e5; /* Azul mais escuro */
-}
-
-@media (min-width: 768px) {
-  form {
-    grid-template-columns: 1fr 1fr; /* Campos lado a lado */
-    gap: 20px;
-  }
-
-  form > button {
-    grid-column: 1 / -1; /* Botão ocupa toda a largura */
-    margin-top: 10px;
-  }
-}
-
-@media (max-width: 768px) {
-  form {
-    grid-template-columns: 1fr; /* Campos em uma única coluna */
-    gap: 15px;
-  }
 }
