@@ -1,7 +1,7 @@
 /* CSS Responsivo com campos organizados e tema azul claro */
 
 html {
-  width: 420px;
+  max-width: 420px;
 }
 
 body {
@@ -128,7 +128,7 @@ select:focus {
  .container {
     
             width: 400px;      
-            
+            height: 600px;
   }
 
 button {
