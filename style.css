@@ -125,6 +125,16 @@ select:focus {
   box-shadow: 0 0 4px #42a5f5;
 }
 
+ .container {
+    
+            width: 400px;
+            height: 600px;
+            margin: 0px; 
+            padding-left: 0px;
+            padding-top: 0px;
+            
+  }
+
 button {
   position:absolute;
   background-color: #42a5f5; /* Azul intermediário */
