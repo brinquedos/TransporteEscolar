@@ -13,7 +13,29 @@ body {
   background-color: #e3f2fd; /* Azul claro */
   color: #333;
 }
+#icon {
+    position: fixed;
+    bottom: 0px;
+    float: right;
+    right: 5px;
+    z-index: 10;
+    height: 100px;
+    width: 120px;
+    
+    margin-top: 15px;
+    margin-bottom: 5px;
+    animation: go-back 4s;
 
+}
+@keyframes go-back {
+    from {
+        transform: translateX(100px);
+    }
+    to {
+        transform: translateX(0);
+    }
+    
+}	
 h1 {
  
   text-align: center;
