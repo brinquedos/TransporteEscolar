@@ -132,7 +132,9 @@ select:focus {
   }
 
 button {
-  
+  position: absolute;
+  height: 70px;
+	width: 300px;
   background-color: #42a5f5; /* Azul intermediário */
   color: white;
   border: none;
