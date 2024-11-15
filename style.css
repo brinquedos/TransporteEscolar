@@ -15,12 +15,14 @@ body {
 }
 
 h1 {
+  position:absolute;
   text-align: center;
   margin-top: 20px;
   color: #01579b; /* Azul mais escuro */
 }
 
 form {
+  position:absolute;
   max-width: 450px;
   margin: 20px auto;
   background: #ffffff;
@@ -32,11 +34,13 @@ form {
 }
 
 label {
+  position:absolute;
   font-weight: bold;
   color: #01579b;
 }
 
 input {
+  position:absolute;
   margin-left: 20px;
   margin: 3px;
   width: 70%;
@@ -48,6 +52,7 @@ input {
 }
 
 #cpf {
+  position:absolute;
   margin: 3px;
   width: 40%;
   padding: 10px; /* Menor tamanho */
@@ -58,6 +63,7 @@ input {
 }
 
 #telefone {
+  position:absolute;
   margin: 3px;
   width: 30%;
   padding: 10px; /* Menor tamanho */
@@ -68,6 +74,7 @@ input {
 }
 
 #celular {
+  position:absolute;
   margin: 3px;
   width: 30%;
   padding: 10px; /* Menor tamanho */
@@ -78,6 +85,7 @@ input {
 }
 
 #valor {
+  position:absolute;
   margin: 3px;
   width: 20%;
   padding: 10px; /* Menor tamanho */
@@ -88,6 +96,7 @@ input {
 }
 
 #pgto {
+  position:absolute;
   margin: 3px;
   width: 20%;
   padding: 10px; /* Menor tamanho */
@@ -98,6 +107,7 @@ input {
 }
 
 select {
+  position:absolute;
   margin: 3px;
   width: 45%;
   padding: 10px; /* Menor tamanho */
@@ -109,12 +119,14 @@ select {
 
 input:focus,
 select:focus {
+  position:absolute;
   outline: none;
   border-color: #42a5f5; /* Azul intermediário */
   box-shadow: 0 0 4px #42a5f5;
 }
 
 button {
+  position:absolute;
   background-color: #42a5f5; /* Azul intermediário */
   color: white;
   border: none;
@@ -127,5 +139,6 @@ button {
 }
 
 button:hover {
+  position:absolute;
   background-color: #1e88e5; /* Azul mais escuro */
 }
