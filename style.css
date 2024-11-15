@@ -1,4 +1,8 @@
 /* CSS Responsivo com campos organizados e tema azul claro */
+html {
+  width: 420px;
+}
+
 body {
   max-width: 450px;
   font-family: Arial, sans-serif;
